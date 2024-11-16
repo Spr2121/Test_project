@@ -10,10 +10,10 @@
     <div class="form-container">
         <h2>Register</h2>
         <form method="POST">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <label for="username">Username (max 20 characters):</label>
+            <input type="text" id="username" name="username" required maxlength="20">
+            <label for="password">Password (max 20 characters):</label>
+            <input type="password" id="password" name="password" required maxlength="20">
             <button type="submit">Register</button>
         </form>
         <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>

@@ -13,6 +13,8 @@ if not app.debug:
     file_handler.setLevel(logging.INFO)
     app.logger.addHandler(file_handler)
 
+MAX_LENGTH = 20  # Ограничение длины для username и password
+
 @app.route('/')
 def home():
     return redirect(url_for('login'))
@@ -49,6 +51,11 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+
+        # Проверка длины username и password
+        if len(username) > MAX_LENGTH or len(password) > MAX_LENGTH:
+            flash(f"Username and password must be at most {MAX_LENGTH} characters long.", 'error')
+            return redirect(url_for('register'))
 
         # Получаем соединение с БД
         db = get_db_connection()
