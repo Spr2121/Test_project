@@ -3,10 +3,10 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main  # Данный процесс будет запускаться при каждом пуше в ветку main
+      - master  # Данный процесс будет запускаться при каждом пуше в ветку main
   pull_request:
     branches:
-      - main  # Также при пулл-запросах в ветку main
+      - master  # Также при пулл-запросах в ветку main
 
 jobs:
   build:
@@ -21,7 +21,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x'  # Укажите версию Python, которую используете
+        python-version: '3.10.6'  # Укажите версию Python, которую используете
 
     # Шаг 3: Установка зависимостей
     - name: Install dependencies
